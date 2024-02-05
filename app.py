@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# In-memory storage for user data (replace this with a database in a real application)
+
 users_data = {}
 
 
@@ -20,7 +20,7 @@ def register_user():
     last_name = request.form['lastName']
     email = request.form['email']
 
-    # Store user data in memory (replace this with database storage)
+    # Store user data in memory 
     users_data[username] = {
         'password': password,
         'first_name': first_name,
@@ -34,7 +34,7 @@ def register_user():
 
 @app.route('/display/<username>')
 def display_info(username):
-    # Retrieve user data from memory (replace this with database retrieval)
+    # Retrieve user data from memory 
     user_data = users_data.get(username, None)
 
     if user_data:
@@ -49,7 +49,7 @@ def login():
     login_username = request.form['loginUsername']
     login_password = request.form['loginPassword']
 
-    # Retrieve user data from memory (replace this with database retrieval)
+    # Retrieve user data 
     user_data = users_data.get(login_username, None)
 
     if user_data and user_data['password'] == login_password:
